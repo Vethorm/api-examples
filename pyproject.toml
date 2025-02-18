@@ -1,0 +1,30 @@
+[project]
+name = "api-examples"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Vethorm", email = "13478023+Vethorm@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb>=1.2.0",
+    "fastapi[standard]>=0.115.8",
+    "grpcio==1.70.0", # pin for local dev compiling
+    "grpcio-tools==1.70.0", # pin for local dev compiling
+    "kagglehub[pandas-datasets]>=0.3.8",
+    "loguru>=0.7.3",
+    "polars[pyarrow]>=1.22.0",
+    "strawberry-graphql[fastapi]>=0.260.2",
+]
+dynamic = ["version"]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[project.scripts]
+grpc_server = "api_examples.backend.grpc_server:serve"
+test_grpc = "api_examples.backend.test_grpc:test"
