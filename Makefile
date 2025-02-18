@@ -13,3 +13,6 @@ grpc-server:
 
 graphql-server:
 	uv run uvicorn api_examples.backend.graphql_server:app --reload
+
+streamlit:
+	uv run streamlit run src/api_examples/frontend/main.py
