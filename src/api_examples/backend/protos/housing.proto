@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package housing;
+
+import "google/protobuf/empty.proto";
+
+message Stats {
+    int64 total_rows = 1;
+}
+
+message MaxMin {
+    double max = 1;
+    double min = 2;
+}
+
+message Metadata {
+    MaxMin Price = 1;
+    MaxMin Bedrooms = 2;
+    MaxMin Bathrooms = 3;
+    MaxMin SquareFeet = 4;
+    MaxMin YearBuilt = 5;
+    MaxMin GarageSpaces = 6;
+    MaxMin LotSize = 7;
+    MaxMin ZipCode = 8;
+    MaxMin CrimeRate = 9;
+    MaxMin SchoolRating = 10;
+}
+
+service HousingService {
+    rpc GetStats (google.protobuf.Empty) returns (Stats);
+
+    rpc GetMetadata (google.protobuf.Empty) returns (Metadata);
+}
